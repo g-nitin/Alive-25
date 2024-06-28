@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_a85080c0f178a4a776e70c589b764801 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+<div style="position: fixed; bottom: 20px; left: 50px; width: 100px; height: 175px; 
+    border:2px solid grey; z-index:9999; font-size:14px; background-color:white;
+    ">&nbsp; <b> Type of Way </b><br>
+    &nbsp; <i class="fa fa-map-marker fa-2x" style="color:red"></i>&nbsp; Type 1 <br>
+    &nbsp; <i class="fa fa-map-marker fa-2x" style="color:blue"></i>&nbsp; Type 2 <br>
+    &nbsp; <i class="fa fa-map-marker fa-2x" style="color:green"></i>&nbsp; Type 3 <br>
+    &nbsp; <i class="fa fa-map-marker fa-2x" style="color:purple"></i>&nbsp; Type 4 <br>
+    &nbsp; <i class="fa fa-map-marker fa-2x" style="color:orange"></i>&nbsp; Type 5 <br>
+</div>
+    
+            <div class="folium-map" id="map_a85080c0f178a4a776e70c589b764801" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_a85080c0f178a4a776e70c589b764801 = L.map(
+                "map_a85080c0f178a4a776e70c589b764801",
+                {
+                    center: [33.8361, -81.1637],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 7,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_3f368b7a3c81089c152b6e4292864cf2 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_3f368b7a3c81089c152b6e4292864cf2.addTo(map_a85080c0f178a4a776e70c589b764801);
+        
+    
+            var marker_cluster_8e94c8e5d57ae2266e2ee51184a09338 = L.markerClusterGroup(
+                {}
+            );
+        
+    
+            var marker_7ea61f9b090d2d0fa9d953549bf9d04a = L.marker(
+                [34.574334, -82.030079],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_d09fce42ef6a2473d41dd961cac4449d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_7ea61f9b090d2d0fa9d953549bf9d04a.setIcon(icon_d09fce42ef6a2473d41dd961cac4449d);
+        
+    
+        var popup_8e7eda9b1aba591856809e1c4b3a9e44 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0494dedd7548d45ac25f12428d658e6e = $(`<div id="html_0494dedd7548d45ac25f12428d658e6e" style="width: 100.0%; height: 100.0%;">Type: 3, Road: INTERSTATE 85</div>`)[0];
+                popup_8e7eda9b1aba591856809e1c4b3a9e44.setContent(html_0494dedd7548d45ac25f12428d658e6e);
+            
+        
+
+        marker_7ea61f9b090d2d0fa9d953549bf9d04a.bindPopup(popup_8e7eda9b1aba591856809e1c4b3a9e44)
+        ;
+
+        
+    
+    
+            var marker_68574a47a404d366f2246834b0e48a05 = L.marker(
+                [32.552701, -80.022526],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_23ad959912934eec63d827d2f76e8cc6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_68574a47a404d366f2246834b0e48a05.setIcon(icon_23ad959912934eec63d827d2f76e8cc6);
+        
+    
+        var popup_e02359681b3055e275e399f45758cbc1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_94cf9a3886b5e765872861bf7dc964e0 = $(`<div id="html_94cf9a3886b5e765872861bf7dc964e0" style="width: 100.0%; height: 100.0%;">Type: 3, Road: I 26</div>`)[0];
+                popup_e02359681b3055e275e399f45758cbc1.setContent(html_94cf9a3886b5e765872861bf7dc964e0);
+            
+        
+
+        marker_68574a47a404d366f2246834b0e48a05.bindPopup(popup_e02359681b3055e275e399f45758cbc1)
+        ;
+
+        
+    
+    
+            var marker_e00bf087bae24e35020fd63e45aba44a = L.marker(
+                [34.101556, -79.490628],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_a602dd5e5fdcf57f29f82317ebb394bd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_e00bf087bae24e35020fd63e45aba44a.setIcon(icon_a602dd5e5fdcf57f29f82317ebb394bd);
+        
+    
+        var popup_713f88b04654a3dc8fffe007ee308fd0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2c7e9d0d97477de3a064d54eba7e37ac = $(`<div id="html_2c7e9d0d97477de3a064d54eba7e37ac" style="width: 100.0%; height: 100.0%;">Type: 2, Road: S CASHUA DR</div>`)[0];
+                popup_713f88b04654a3dc8fffe007ee308fd0.setContent(html_2c7e9d0d97477de3a064d54eba7e37ac);
+            
+        
+
+        marker_e00bf087bae24e35020fd63e45aba44a.bindPopup(popup_713f88b04654a3dc8fffe007ee308fd0)
+        ;
+
+        
+    
+    
+            var marker_3eef9de56cee8921e446d5838acc0733 = L.marker(
+                [32.5056, -80.020582],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_04c6be3c9ce65390cd33bdf6907296c5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_3eef9de56cee8921e446d5838acc0733.setIcon(icon_04c6be3c9ce65390cd33bdf6907296c5);
+        
+    
+        var popup_b7efcbb53a74ea5791e18d0bc4f8d561 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a73e2021f0193a70381a39d1daa4209a = $(`<div id="html_a73e2021f0193a70381a39d1daa4209a" style="width: 100.0%; height: 100.0%;">Type: 1, Road: FLYNN DR</div>`)[0];
+                popup_b7efcbb53a74ea5791e18d0bc4f8d561.setContent(html_a73e2021f0193a70381a39d1daa4209a);
+            
+        
+
+        marker_3eef9de56cee8921e446d5838acc0733.bindPopup(popup_b7efcbb53a74ea5791e18d0bc4f8d561)
+        ;
+
+        
+    
+    
+            var marker_8e814271420e02ec444f4629105ae16b = L.marker(
+                [34.0004, -81.061001],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_c160241d72570449ff8eea95e4402de4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_8e814271420e02ec444f4629105ae16b.setIcon(icon_c160241d72570449ff8eea95e4402de4);
+        
+    
+        var popup_ae8b527c26666f864b7fbb1db4aa1acb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8b28babbb3dbcaf8d546df70cd0e78fb = $(`<div id="html_8b28babbb3dbcaf8d546df70cd0e78fb" style="width: 100.0%; height: 100.0%;">Type: 2, Road: SUNSET BLVD</div>`)[0];
+                popup_ae8b527c26666f864b7fbb1db4aa1acb.setContent(html_8b28babbb3dbcaf8d546df70cd0e78fb);
+            
+        
+
+        marker_8e814271420e02ec444f4629105ae16b.bindPopup(popup_ae8b527c26666f864b7fbb1db4aa1acb)
+        ;
+
+        
+    
+    
+            var marker_9684089611a6e59cac3399b25624d3fa = L.marker(
+                [34.011146, -81.003362],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_7f598bee7556fb1771430b4498532d41 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_9684089611a6e59cac3399b25624d3fa.setIcon(icon_7f598bee7556fb1771430b4498532d41);
+        
+    
+        var popup_cbf7134ea1d7b660920edc1cbde2c05d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_eba5e08b906244019b4487ccbce0392a = $(`<div id="html_eba5e08b906244019b4487ccbce0392a" style="width: 100.0%; height: 100.0%;">Type: 1, Road: CHESTNUT ST</div>`)[0];
+                popup_cbf7134ea1d7b660920edc1cbde2c05d.setContent(html_eba5e08b906244019b4487ccbce0392a);
+            
+        
+
+        marker_9684089611a6e59cac3399b25624d3fa.bindPopup(popup_cbf7134ea1d7b660920edc1cbde2c05d)
+        ;
+
+        
+    
+    
+            var marker_d958ad15546b0be3bfe67670bcbef214 = L.marker(
+                [33.57576, -79.48284],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_5aa882a49d3b897731d87996b8a36a77 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_d958ad15546b0be3bfe67670bcbef214.setIcon(icon_5aa882a49d3b897731d87996b8a36a77);
+        
+    
+        var popup_7c799e96ccaa2c202c8c507fa932aa23 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9944dbb8f270b255206c78b47e9efe56 = $(`<div id="html_9944dbb8f270b255206c78b47e9efe56" style="width: 100.0%; height: 100.0%;">Type: 1, Road: SALEM ROAD</div>`)[0];
+                popup_7c799e96ccaa2c202c8c507fa932aa23.setContent(html_9944dbb8f270b255206c78b47e9efe56);
+            
+        
+
+        marker_d958ad15546b0be3bfe67670bcbef214.bindPopup(popup_7c799e96ccaa2c202c8c507fa932aa23)
+        ;
+
+        
+    
+    
+            var marker_19fd972226ba1cbced3f10ffef98568f = L.marker(
+                [34.583554, -80.595636],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_2525fdaaf16c84c326eff9952654c17b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_19fd972226ba1cbced3f10ffef98568f.setIcon(icon_2525fdaaf16c84c326eff9952654c17b);
+        
+    
+        var popup_ab15a2c3b02489f1c16f542768d09068 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_aa65e8a457d325d7b4b806a5e5c7b691 = $(`<div id="html_aa65e8a457d325d7b4b806a5e5c7b691" style="width: 100.0%; height: 100.0%;">Type: 2, Road: CELANESE RD</div>`)[0];
+                popup_ab15a2c3b02489f1c16f542768d09068.setContent(html_aa65e8a457d325d7b4b806a5e5c7b691);
+            
+        
+
+        marker_19fd972226ba1cbced3f10ffef98568f.bindPopup(popup_ab15a2c3b02489f1c16f542768d09068)
+        ;
+
+        
+    
+    
+            var marker_3708889677cd3d5c57e5339218690ccb = L.marker(
+                [34.415251, -83.044282],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_e33d60419af0fbc9d182cd59300f6d25 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_3708889677cd3d5c57e5339218690ccb.setIcon(icon_e33d60419af0fbc9d182cd59300f6d25);
+        
+    
+        var popup_9783d79eadc789eb9b5557c3fab7d021 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5e417e0d41e66fe0918df44844e1f7c0 = $(`<div id="html_5e417e0d41e66fe0918df44844e1f7c0" style="width: 100.0%; height: 100.0%;">Type: 1, Road: WESTMINSTER HWY</div>`)[0];
+                popup_9783d79eadc789eb9b5557c3fab7d021.setContent(html_5e417e0d41e66fe0918df44844e1f7c0);
+            
+        
+
+        marker_3708889677cd3d5c57e5339218690ccb.bindPopup(popup_9783d79eadc789eb9b5557c3fab7d021)
+        ;
+
+        
+    
+    
+            var marker_ae781eff6daa2aa7fe1c5d406f780b31 = L.marker(
+                [34.075488, -80.524998],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_37171c32a7fe87d604fc166b18095fcd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_ae781eff6daa2aa7fe1c5d406f780b31.setIcon(icon_37171c32a7fe87d604fc166b18095fcd);
+        
+    
+        var popup_392965f3ee460903eccc242427948d37 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_72206374ee7754f70320fedecfa18cf7 = $(`<div id="html_72206374ee7754f70320fedecfa18cf7" style="width: 100.0%; height: 100.0%;">Type: 1, Road: TOWN CENTER PL</div>`)[0];
+                popup_392965f3ee460903eccc242427948d37.setContent(html_72206374ee7754f70320fedecfa18cf7);
+            
+        
+
+        marker_ae781eff6daa2aa7fe1c5d406f780b31.bindPopup(popup_392965f3ee460903eccc242427948d37)
+        ;
+
+        
+    
+    
+            var marker_096207c6c04aed84f82c0f63965af83c = L.marker(
+                [34.062977, -80.500085],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_ce363f73bfea65c22b61df31bf3a2827 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_096207c6c04aed84f82c0f63965af83c.setIcon(icon_ce363f73bfea65c22b61df31bf3a2827);
+        
+    
+        var popup_2058455f42bb1f24231d28f6ef73a741 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7f8292f712165766d841861e26e6459a = $(`<div id="html_7f8292f712165766d841861e26e6459a" style="width: 100.0%; height: 100.0%;">Type: 2, Road: SPEARS CREEK CHURCH RD</div>`)[0];
+                popup_2058455f42bb1f24231d28f6ef73a741.setContent(html_7f8292f712165766d841861e26e6459a);
+            
+        
+
+        marker_096207c6c04aed84f82c0f63965af83c.bindPopup(popup_2058455f42bb1f24231d28f6ef73a741)
+        ;
+
+        
+    
+    
+            var marker_37790c36c3bc67064243b121531847bb = L.marker(
+                [34.080269, -80.525952],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_5d61db7f9534b9ddfdec656011740923 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_37790c36c3bc67064243b121531847bb.setIcon(icon_5d61db7f9534b9ddfdec656011740923);
+        
+    
+        var popup_0fb30e8aad6ae14da8650e642bcf24e0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fff1a0cfe269e9f93c071484b677829a = $(`<div id="html_fff1a0cfe269e9f93c071484b677829a" style="width: 100.0%; height: 100.0%;">Type: 1, Road: N SPRINGS RD</div>`)[0];
+                popup_0fb30e8aad6ae14da8650e642bcf24e0.setContent(html_fff1a0cfe269e9f93c071484b677829a);
+            
+        
+
+        marker_37790c36c3bc67064243b121531847bb.bindPopup(popup_0fb30e8aad6ae14da8650e642bcf24e0)
+        ;
+
+        
+    
+    
+            var marker_5f991abf102084eafb5841334015dc2e = L.marker(
+                [32.582899, -80.081266],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_eff1559fa8fdb9a1b01e67f698a1f732 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_5f991abf102084eafb5841334015dc2e.setIcon(icon_eff1559fa8fdb9a1b01e67f698a1f732);
+        
+    
+        var popup_228264c19dc3a56dc0c9b4ec82466a39 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_97a68e54ee442697e9471dfe6ac9bfdf = $(`<div id="html_97a68e54ee442697e9471dfe6ac9bfdf" style="width: 100.0%; height: 100.0%;">Type: 2, Road: LADSON RD</div>`)[0];
+                popup_228264c19dc3a56dc0c9b4ec82466a39.setContent(html_97a68e54ee442697e9471dfe6ac9bfdf);
+            
+        
+
+        marker_5f991abf102084eafb5841334015dc2e.bindPopup(popup_228264c19dc3a56dc0c9b4ec82466a39)
+        ;
+
+        
+    
+    
+            var marker_6bfbecd291b9600544d10612ea9c5795 = L.marker(
+                [0.0, -0.0],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_1543bb38ebcdf595aa9f5f08242e6a84 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_6bfbecd291b9600544d10612ea9c5795.setIcon(icon_1543bb38ebcdf595aa9f5f08242e6a84);
+        
+    
+        var popup_6df012a04f903eae707729a3b97dd3a7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_879d08d60f8453f8665565f8961e7a25 = $(`<div id="html_879d08d60f8453f8665565f8961e7a25" style="width: 100.0%; height: 100.0%;">Type: 2, Road: E DEAKLB STREET</div>`)[0];
+                popup_6df012a04f903eae707729a3b97dd3a7.setContent(html_879d08d60f8453f8665565f8961e7a25);
+            
+        
+
+        marker_6bfbecd291b9600544d10612ea9c5795.bindPopup(popup_6df012a04f903eae707729a3b97dd3a7)
+        ;
+
+        
+    
+    
+            var marker_fda6f6cf0f2482130d12b66f7d6b063f = L.marker(
+                [34.004925, -81.043313],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_4ad7fefc44fbfbfd8f2ceaf916e1d687 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_fda6f6cf0f2482130d12b66f7d6b063f.setIcon(icon_4ad7fefc44fbfbfd8f2ceaf916e1d687);
+        
+    
+        var popup_159e9e6642bc147431fb0b6209631463 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ea4de2eda4b62b7472fa4d88b176b434 = $(`<div id="html_ea4de2eda4b62b7472fa4d88b176b434" style="width: 100.0%; height: 100.0%;">Type: 2, Road: GREYSTONE BLVD</div>`)[0];
+                popup_159e9e6642bc147431fb0b6209631463.setContent(html_ea4de2eda4b62b7472fa4d88b176b434);
+            
+        
+
+        marker_fda6f6cf0f2482130d12b66f7d6b063f.bindPopup(popup_159e9e6642bc147431fb0b6209631463)
+        ;
+
+        
+    
+    
+            var marker_5a4ce70d73ae7dd3b870466060c6da7b = L.marker(
+                [34.565546, -81.022684],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_c9dbd0cd1579938ebc29665ffc9aadcb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_5a4ce70d73ae7dd3b870466060c6da7b.setIcon(icon_c9dbd0cd1579938ebc29665ffc9aadcb);
+        
+    
+        var popup_90692b61968425fdf35486ccc399efe6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_cd0fead30ad72e35b5f4dcc4358b5b6c = $(`<div id="html_cd0fead30ad72e35b5f4dcc4358b5b6c" style="width: 100.0%; height: 100.0%;">Type: 1, Road: EBENEZER RD</div>`)[0];
+                popup_90692b61968425fdf35486ccc399efe6.setContent(html_cd0fead30ad72e35b5f4dcc4358b5b6c);
+            
+        
+
+        marker_5a4ce70d73ae7dd3b870466060c6da7b.bindPopup(popup_90692b61968425fdf35486ccc399efe6)
+        ;
+
+        
+    
+    
+            var marker_5f5511d406676b552eca9695ae198308 = L.marker(
+                [33.354477, -79.263268],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_c9594f26547f546a26e6913496a64ba7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_5f5511d406676b552eca9695ae198308.setIcon(icon_c9594f26547f546a26e6913496a64ba7);
+        
+    
+        var popup_35a340db0c26524ebf431eb925683e9c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9ce8b03ab7f03636ccd1bc5406450084 = $(`<div id="html_9ce8b03ab7f03636ccd1bc5406450084" style="width: 100.0%; height: 100.0%;">Type: 1, Road: BROWNS FERRY RD</div>`)[0];
+                popup_35a340db0c26524ebf431eb925683e9c.setContent(html_9ce8b03ab7f03636ccd1bc5406450084);
+            
+        
+
+        marker_5f5511d406676b552eca9695ae198308.bindPopup(popup_35a340db0c26524ebf431eb925683e9c)
+        ;
+
+        
+    
+    
+            var marker_7dd1fd548d5bb8c9b8bdb2f330b3466e = L.marker(
+                [34.494591, -82.242786],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_ed4af38894eb6fc04221485e9bf84d0a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_7dd1fd548d5bb8c9b8bdb2f330b3466e.setIcon(icon_ed4af38894eb6fc04221485e9bf84d0a);
+        
+    
+        var popup_68fbf780c3dcff16cde1207a99e4f190 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e31e6b4421938656d73cc8c73643d766 = $(`<div id="html_e31e6b4421938656d73cc8c73643d766" style="width: 100.0%; height: 100.0%;">Type: 2, Road: MILLS AVE</div>`)[0];
+                popup_68fbf780c3dcff16cde1207a99e4f190.setContent(html_e31e6b4421938656d73cc8c73643d766);
+            
+        
+
+        marker_7dd1fd548d5bb8c9b8bdb2f330b3466e.bindPopup(popup_68fbf780c3dcff16cde1207a99e4f190)
+        ;
+
+        
+    
+    
+            var marker_d2fdae15f51bb77c55c867ac3c7df883 = L.marker(
+                [33.54544, -81.31327],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_1f2e5d41bc71a2d0e3cae57cc819c7ac = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_d2fdae15f51bb77c55c867ac3c7df883.setIcon(icon_1f2e5d41bc71a2d0e3cae57cc819c7ac);
+        
+    
+        var popup_425a7513583509ea324ee94662ff56af = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c976bb1c1f0c4f7bda4145600e8c8240 = $(`<div id="html_c976bb1c1f0c4f7bda4145600e8c8240" style="width: 100.0%; height: 100.0%;">Type: 1, Road: E CHURCH ST</div>`)[0];
+                popup_425a7513583509ea324ee94662ff56af.setContent(html_c976bb1c1f0c4f7bda4145600e8c8240);
+            
+        
+
+        marker_d2fdae15f51bb77c55c867ac3c7df883.bindPopup(popup_425a7513583509ea324ee94662ff56af)
+        ;
+
+        
+    
+    
+            var marker_d3aa11aa98a3acd04a754a15d0337ae0 = L.marker(
+                [33.092822, -80.040271],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_a5685acc92deff2ee61955551ab806aa = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_d3aa11aa98a3acd04a754a15d0337ae0.setIcon(icon_a5685acc92deff2ee61955551ab806aa);
+        
+    
+        var popup_517b0453cd69792cdfdd0519053321a2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_523c88eb200a245b73ac127fd61286f1 = $(`<div id="html_523c88eb200a245b73ac127fd61286f1" style="width: 100.0%; height: 100.0%;">Type: 1, Road: BLACK TOM ROAD</div>`)[0];
+                popup_517b0453cd69792cdfdd0519053321a2.setContent(html_523c88eb200a245b73ac127fd61286f1);
+            
+        
+
+        marker_d3aa11aa98a3acd04a754a15d0337ae0.bindPopup(popup_517b0453cd69792cdfdd0519053321a2)
+        ;
+
+        
+    
+    
+            var marker_b70c07ce09371b83bb6366fa0a5d0984 = L.marker(
+                [34.114366, -80.175802],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_7285acdb3564a1201e6c7ca119bfbf75 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_b70c07ce09371b83bb6366fa0a5d0984.setIcon(icon_7285acdb3564a1201e6c7ca119bfbf75);
+        
+    
+        var popup_c18a0574d9f4583e9930c2da82841529 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b76f407f8a9fa3bfd64877e279b92343 = $(`<div id="html_b76f407f8a9fa3bfd64877e279b92343" style="width: 100.0%; height: 100.0%;">Type: 2, Road: I-20</div>`)[0];
+                popup_c18a0574d9f4583e9930c2da82841529.setContent(html_b76f407f8a9fa3bfd64877e279b92343);
+            
+        
+
+        marker_b70c07ce09371b83bb6366fa0a5d0984.bindPopup(popup_c18a0574d9f4583e9930c2da82841529)
+        ;
+
+        
+    
+    
+            var marker_ede4b17d24694c74798a3ed08bac7091 = L.marker(
+                [33.1308, -79.58106],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_4c04620b59ec5179264013b8db42c7da = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_ede4b17d24694c74798a3ed08bac7091.setIcon(icon_4c04620b59ec5179264013b8db42c7da);
+        
+    
+        var popup_72c072d91ea82aa72954fc64e3621248 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a083f8fdb194cef78809048368a4f003 = $(`<div id="html_a083f8fdb194cef78809048368a4f003" style="width: 100.0%; height: 100.0%;">Type: 2, Road: nan</div>`)[0];
+                popup_72c072d91ea82aa72954fc64e3621248.setContent(html_a083f8fdb194cef78809048368a4f003);
+            
+        
+
+        marker_ede4b17d24694c74798a3ed08bac7091.bindPopup(popup_72c072d91ea82aa72954fc64e3621248)
+        ;
+
+        
+    
+    
+            var marker_59b9f58bb3ce961c58bca5ea9428c680 = L.marker(
+                [34.054283, -81.101452],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_c3c458d884494e03a7a45d92789a73b1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_59b9f58bb3ce961c58bca5ea9428c680.setIcon(icon_c3c458d884494e03a7a45d92789a73b1);
+        
+    
+        var popup_be4bfab37ea7c2c2e8c0e11eaa0ebf8e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4955a257ffb2bd46e62bc006effe15d0 = $(`<div id="html_4955a257ffb2bd46e62bc006effe15d0" style="width: 100.0%; height: 100.0%;">Type: 3, Road: I-26</div>`)[0];
+                popup_be4bfab37ea7c2c2e8c0e11eaa0ebf8e.setContent(html_4955a257ffb2bd46e62bc006effe15d0);
+            
+        
+
+        marker_59b9f58bb3ce961c58bca5ea9428c680.bindPopup(popup_be4bfab37ea7c2c2e8c0e11eaa0ebf8e)
+        ;
+
+        
+    
+    
+            var marker_1cc8ef485d2729d706aa821c8b3f3249 = L.marker(
+                [34.363132, -82.233595],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_ffcf2a045b21845fbfc25d0c44271bb5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_1cc8ef485d2729d706aa821c8b3f3249.setIcon(icon_ffcf2a045b21845fbfc25d0c44271bb5);
+        
+    
+        var popup_b88e90697a426288d42c6a836ce0ca9a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_daa11dac773968c4caf0461a5d8bfc18 = $(`<div id="html_daa11dac773968c4caf0461a5d8bfc18" style="width: 100.0%; height: 100.0%;">Type: 1, Road: COOLEY BRIDGE RD</div>`)[0];
+                popup_b88e90697a426288d42c6a836ce0ca9a.setContent(html_daa11dac773968c4caf0461a5d8bfc18);
+            
+        
+
+        marker_1cc8ef485d2729d706aa821c8b3f3249.bindPopup(popup_b88e90697a426288d42c6a836ce0ca9a)
+        ;
+
+        
+    
+    
+            var marker_0a7047d5b1a5fa56e42372fcd48b838f = L.marker(
+                [33.591644, -81.042251],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_92ec975542a4bc5a35d736ad0da27512 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_0a7047d5b1a5fa56e42372fcd48b838f.setIcon(icon_92ec975542a4bc5a35d736ad0da27512);
+        
+    
+        var popup_b3115bb75a202a1fa77c13273ba48183 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d95eb988e098d51d71a6f1c8b79314a9 = $(`<div id="html_d95eb988e098d51d71a6f1c8b79314a9" style="width: 100.0%; height: 100.0%;">Type: 2, Road: AUGUSTA RD</div>`)[0];
+                popup_b3115bb75a202a1fa77c13273ba48183.setContent(html_d95eb988e098d51d71a6f1c8b79314a9);
+            
+        
+
+        marker_0a7047d5b1a5fa56e42372fcd48b838f.bindPopup(popup_b3115bb75a202a1fa77c13273ba48183)
+        ;
+
+        
+    
+    
+            var marker_0cd808bd83ed1cc2e2113a8b403de0cb = L.marker(
+                [34.492471, -82.234286],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_98a8fef4b1afd5ab0bec735b9d8c6856 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_0cd808bd83ed1cc2e2113a8b403de0cb.setIcon(icon_98a8fef4b1afd5ab0bec735b9d8c6856);
+        
+    
+        var popup_190bdb016f43bdd1abea6d1a7997a6d0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_69d8b3c1cd48522d423488aa2310f53c = $(`<div id="html_69d8b3c1cd48522d423488aa2310f53c" style="width: 100.0%; height: 100.0%;">Type: 1, Road: W FARIS RD</div>`)[0];
+                popup_190bdb016f43bdd1abea6d1a7997a6d0.setContent(html_69d8b3c1cd48522d423488aa2310f53c);
+            
+        
+
+        marker_0cd808bd83ed1cc2e2113a8b403de0cb.bindPopup(popup_190bdb016f43bdd1abea6d1a7997a6d0)
+        ;
+
+        
+    
+    
+            var marker_4085e62686b77732ed56c5206b239b6d = L.marker(
+                [33.595978, -81.021694],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_cc7ba55adf06078d55c5b38cfa864dd3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_4085e62686b77732ed56c5206b239b6d.setIcon(icon_cc7ba55adf06078d55c5b38cfa864dd3);
+        
+    
+        var popup_7f1bcaed97ea6476b391dcba610d6424 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3b139521186bd0f8cda257b98f52c210 = $(`<div id="html_3b139521186bd0f8cda257b98f52c210" style="width: 100.0%; height: 100.0%;">Type: 2, Road: GERVAIS ST</div>`)[0];
+                popup_7f1bcaed97ea6476b391dcba610d6424.setContent(html_3b139521186bd0f8cda257b98f52c210);
+            
+        
+
+        marker_4085e62686b77732ed56c5206b239b6d.bindPopup(popup_7f1bcaed97ea6476b391dcba610d6424)
+        ;
+
+        
+    
+    
+            var marker_5b8b0bc14d0331bc578a4acd11a586a9 = L.marker(
+                [35.010232, -82.011916],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_bcc5afa3837970cea072c9f4fdd7d00b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_5b8b0bc14d0331bc578a4acd11a586a9.setIcon(icon_bcc5afa3837970cea072c9f4fdd7d00b);
+        
+    
+        var popup_5ed5cf2da52d476c15922dd84082aa18 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2093f358954d97b8322bd5afbd8c993b = $(`<div id="html_2093f358954d97b8322bd5afbd8c993b" style="width: 100.0%; height: 100.0%;">Type: 2, Road: ASHEVILLE HWY</div>`)[0];
+                popup_5ed5cf2da52d476c15922dd84082aa18.setContent(html_2093f358954d97b8322bd5afbd8c993b);
+            
+        
+
+        marker_5b8b0bc14d0331bc578a4acd11a586a9.bindPopup(popup_5ed5cf2da52d476c15922dd84082aa18)
+        ;
+
+        
+    
+    
+            var marker_83c71e20af57224e001b85a6e17143e1 = L.marker(
+                [34.131315, -81.24383],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_ec15d12f9cfb6f993eaa66c765ff0959 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_83c71e20af57224e001b85a6e17143e1.setIcon(icon_ec15d12f9cfb6f993eaa66c765ff0959);
+        
+    
+        var popup_73bd5cfb363fb45adfcc9dcaba5153d1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8ac7f33d34fe69ffaa045cafccf71a60 = $(`<div id="html_8ac7f33d34fe69ffaa045cafccf71a60" style="width: 100.0%; height: 100.0%;">Type: 3, Road: nan</div>`)[0];
+                popup_73bd5cfb363fb45adfcc9dcaba5153d1.setContent(html_8ac7f33d34fe69ffaa045cafccf71a60);
+            
+        
+
+        marker_83c71e20af57224e001b85a6e17143e1.bindPopup(popup_73bd5cfb363fb45adfcc9dcaba5153d1)
+        ;
+
+        
+    
+    
+            var marker_e0c6b0731f078bb97c18f673cf49fd58 = L.marker(
+                [34.040142, -81.10403],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_ea83190e80796de2465efa9c699368f6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_e0c6b0731f078bb97c18f673cf49fd58.setIcon(icon_ea83190e80796de2465efa9c699368f6);
+        
+    
+        var popup_4b8cb312877a29bf73969aac55e6d728 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2281938861be40493a62b8cbf7b58494 = $(`<div id="html_2281938861be40493a62b8cbf7b58494" style="width: 100.0%; height: 100.0%;">Type: 1, Road: WESCOTT RD</div>`)[0];
+                popup_4b8cb312877a29bf73969aac55e6d728.setContent(html_2281938861be40493a62b8cbf7b58494);
+            
+        
+
+        marker_e0c6b0731f078bb97c18f673cf49fd58.bindPopup(popup_4b8cb312877a29bf73969aac55e6d728)
+        ;
+
+        
+    
+    
+            var marker_1a9d3bcc6f8833950ab804368cd51cdd = L.marker(
+                [33.404242, -78.575317],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_1831c2743e16b08b171cfb405bdc4ec4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_1a9d3bcc6f8833950ab804368cd51cdd.setIcon(icon_1831c2743e16b08b171cfb405bdc4ec4);
+        
+    
+        var popup_95c18e119f90ec912583133a713257b5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_adb01e39f911963eb691f43bcf00e1b2 = $(`<div id="html_adb01e39f911963eb691f43bcf00e1b2" style="width: 100.0%; height: 100.0%;">Type: 2, Road: PALMETTO POINTE BLVD</div>`)[0];
+                popup_95c18e119f90ec912583133a713257b5.setContent(html_adb01e39f911963eb691f43bcf00e1b2);
+            
+        
+
+        marker_1a9d3bcc6f8833950ab804368cd51cdd.bindPopup(popup_95c18e119f90ec912583133a713257b5)
+        ;
+
+        
+    
+    
+            var marker_dc59d429e888f42db44fa7cbf98e469f = L.marker(
+                [32.102057, -81.041978],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_a2429f9829d1da9ab7dc41656413eafb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_dc59d429e888f42db44fa7cbf98e469f.setIcon(icon_a2429f9829d1da9ab7dc41656413eafb);
+        
+    
+        var popup_4f6ed9e5d0d4e29ee289f634e66a72d1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b2565be887c095bb1d580257414ac90d = $(`<div id="html_b2565be887c095bb1d580257414ac90d" style="width: 100.0%; height: 100.0%;">Type: 1, Road: SPEEDWAY BLVD</div>`)[0];
+                popup_4f6ed9e5d0d4e29ee289f634e66a72d1.setContent(html_b2565be887c095bb1d580257414ac90d);
+            
+        
+
+        marker_dc59d429e888f42db44fa7cbf98e469f.bindPopup(popup_4f6ed9e5d0d4e29ee289f634e66a72d1)
+        ;
+
+        
+    
+    
+            var marker_597e65508a857ed3ee0e681713fb6dc6 = L.marker(
+                [32.590229, -80.015556],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_c2cadac8fc53ab554d97aa4dcbf28024 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_597e65508a857ed3ee0e681713fb6dc6.setIcon(icon_c2cadac8fc53ab554d97aa4dcbf28024);
+        
+    
+        var popup_c9095c02bba225fe8a321f8a6cd07ea0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f5070aebb42a635cff566ac47a5eb270 = $(`<div id="html_f5070aebb42a635cff566ac47a5eb270" style="width: 100.0%; height: 100.0%;">Type: 2, Road: RED BANK RD</div>`)[0];
+                popup_c9095c02bba225fe8a321f8a6cd07ea0.setContent(html_f5070aebb42a635cff566ac47a5eb270);
+            
+        
+
+        marker_597e65508a857ed3ee0e681713fb6dc6.bindPopup(popup_c9095c02bba225fe8a321f8a6cd07ea0)
+        ;
+
+        
+    
+    
+            var marker_68c6440e023b40572a840e5ba4bb90fa = L.marker(
+                [34.113124, -79.454579],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_2341ac062ac39fca5f66f0b20e998d54 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_68c6440e023b40572a840e5ba4bb90fa.setIcon(icon_2341ac062ac39fca5f66f0b20e998d54);
+        
+    
+        var popup_32a22fcd3a8ea53b64f5d1645c02fdde = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fc7889cd7147e5c8c005706944b2f0fc = $(`<div id="html_fc7889cd7147e5c8c005706944b2f0fc" style="width: 100.0%; height: 100.0%;">Type: 4, Road: BARRINGER ST</div>`)[0];
+                popup_32a22fcd3a8ea53b64f5d1645c02fdde.setContent(html_fc7889cd7147e5c8c005706944b2f0fc);
+            
+        
+
+        marker_68c6440e023b40572a840e5ba4bb90fa.bindPopup(popup_32a22fcd3a8ea53b64f5d1645c02fdde)
+        ;
+
+        
+    
+    
+            var marker_b043d804404af25fa8b57426f59924b3 = L.marker(
+                [33.594906, -80.494944],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_5b17f209fe2f120a1967c507e7b79c4b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_b043d804404af25fa8b57426f59924b3.setIcon(icon_5b17f209fe2f120a1967c507e7b79c4b);
+        
+    
+        var popup_75793d338667826e1e598dc3f53f4081 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ae46db7a4293f2127f69bba51995d52c = $(`<div id="html_ae46db7a4293f2127f69bba51995d52c" style="width: 100.0%; height: 100.0%;">Type: 1, Road: LEESBURG RD</div>`)[0];
+                popup_75793d338667826e1e598dc3f53f4081.setContent(html_ae46db7a4293f2127f69bba51995d52c);
+            
+        
+
+        marker_b043d804404af25fa8b57426f59924b3.bindPopup(popup_75793d338667826e1e598dc3f53f4081)
+        ;
+
+        
+    
+    
+            var marker_6a119c356e1dce5b1ce425b11036e23e = L.marker(
+                [34.123427, -82.105621],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_c81a7eea0277923c305b587e1b02e158 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_6a119c356e1dce5b1ce425b11036e23e.setIcon(icon_c81a7eea0277923c305b587e1b02e158);
+        
+    
+        var popup_e7877dc7b19e3a600412b3a2e81ce4ae = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_716fad3529176058ac28d9daaffeee9c = $(`<div id="html_716fad3529176058ac28d9daaffeee9c" style="width: 100.0%; height: 100.0%;">Type: 1, Road: BYPASS 72 NW</div>`)[0];
+                popup_e7877dc7b19e3a600412b3a2e81ce4ae.setContent(html_716fad3529176058ac28d9daaffeee9c);
+            
+        
+
+        marker_6a119c356e1dce5b1ce425b11036e23e.bindPopup(popup_e7877dc7b19e3a600412b3a2e81ce4ae)
+        ;
+
+        
+    
+    
+            var marker_daeadeab7c026fad067f96b9646af40e = L.marker(
+                [34.403572, -82.315768],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_e6b20cae395de029c8214c6d26f7c70b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_daeadeab7c026fad067f96b9646af40e.setIcon(icon_e6b20cae395de029c8214c6d26f7c70b);
+        
+    
+        var popup_d5a04fd35ce922ee025eed2f84e023fe = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4ede29558b3a950abbdb03f43f580508 = $(`<div id="html_4ede29558b3a950abbdb03f43f580508" style="width: 100.0%; height: 100.0%;">Type: 3, Road: nan</div>`)[0];
+                popup_d5a04fd35ce922ee025eed2f84e023fe.setContent(html_4ede29558b3a950abbdb03f43f580508);
+            
+        
+
+        marker_daeadeab7c026fad067f96b9646af40e.bindPopup(popup_d5a04fd35ce922ee025eed2f84e023fe)
+        ;
+
+        
+    
+    
+            var marker_6bb491b2395c2c64d631bde32e7f5ae2 = L.marker(
+                [34.285412, -82.015268],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_e669780e92109beb6bbf89bcc9ff0b1d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_6bb491b2395c2c64d631bde32e7f5ae2.setIcon(icon_e669780e92109beb6bbf89bcc9ff0b1d);
+        
+    
+        var popup_fe105ad444d478d7ced41409e5046108 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3e40a6e35a0910c0b12c2b17406f3b92 = $(`<div id="html_3e40a6e35a0910c0b12c2b17406f3b92" style="width: 100.0%; height: 100.0%;">Type: 1, Road: LONDON DR</div>`)[0];
+                popup_fe105ad444d478d7ced41409e5046108.setContent(html_3e40a6e35a0910c0b12c2b17406f3b92);
+            
+        
+
+        marker_6bb491b2395c2c64d631bde32e7f5ae2.bindPopup(popup_fe105ad444d478d7ced41409e5046108)
+        ;
+
+        
+    
+    
+            var marker_74b1cb8584b9f7b3ebd4033f422cf148 = L.marker(
+                [33.58264, -81.092286],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_ef7c8cc70821e46619357f3cb05cb613 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_74b1cb8584b9f7b3ebd4033f422cf148.setIcon(icon_ef7c8cc70821e46619357f3cb05cb613);
+        
+    
+        var popup_e49993849e0ba49d182c63d8da4843a8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ff7750e4eec23aa107459c058238e91a = $(`<div id="html_ff7750e4eec23aa107459c058238e91a" style="width: 100.0%; height: 100.0%;">Type: 1, Road: OAK DR</div>`)[0];
+                popup_e49993849e0ba49d182c63d8da4843a8.setContent(html_ff7750e4eec23aa107459c058238e91a);
+            
+        
+
+        marker_74b1cb8584b9f7b3ebd4033f422cf148.bindPopup(popup_e49993849e0ba49d182c63d8da4843a8)
+        ;
+
+        
+    
+    
+            var marker_1e1e8854c6e5f11c0aa2e816d276978d = L.marker(
+                [34.561698, -81.555354],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_4b75245693d6f6e419faac84e67bbe9f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_1e1e8854c6e5f11c0aa2e816d276978d.setIcon(icon_4b75245693d6f6e419faac84e67bbe9f);
+        
+    
+        var popup_9dca95d77d8df1041708e002f10d24e0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_16cdfc39ae320d9f914acd7ed2daf0da = $(`<div id="html_16cdfc39ae320d9f914acd7ed2daf0da" style="width: 100.0%; height: 100.0%;">Type: 1, Road: S HAMPTON DR</div>`)[0];
+                popup_9dca95d77d8df1041708e002f10d24e0.setContent(html_16cdfc39ae320d9f914acd7ed2daf0da);
+            
+        
+
+        marker_1e1e8854c6e5f11c0aa2e816d276978d.bindPopup(popup_9dca95d77d8df1041708e002f10d24e0)
+        ;
+
+        
+    
+    
+            var marker_0dc8061207c3839daf039549852dbf43 = L.marker(
+                [34.561154, -82.162741],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_c6cfc785b6f436d514a81221c4e7a313 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_0dc8061207c3839daf039549852dbf43.setIcon(icon_c6cfc785b6f436d514a81221c4e7a313);
+        
+    
+        var popup_0b2ea13eb71b15a84753fe30f1f757d5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_96b0aefd000be74890df0c374d517b43 = $(`<div id="html_96b0aefd000be74890df0c374d517b43" style="width: 100.0%; height: 100.0%;">Type: 2, Road: WADE HAMPTON BLVD</div>`)[0];
+                popup_0b2ea13eb71b15a84753fe30f1f757d5.setContent(html_96b0aefd000be74890df0c374d517b43);
+            
+        
+
+        marker_0dc8061207c3839daf039549852dbf43.bindPopup(popup_0b2ea13eb71b15a84753fe30f1f757d5)
+        ;
+
+        
+    
+    
+            var marker_707521ce8758c45336490a85f1c3c297 = L.marker(
+                [33.45495, -79.00468],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_a38be0dfdc355f8a1b22fa3897b6f26c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_707521ce8758c45336490a85f1c3c297.setIcon(icon_a38be0dfdc355f8a1b22fa3897b6f26c);
+        
+    
+        var popup_eb01581e7d30c572ecb11da0bf43e115 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_39f891d8663248bc7ff394875f1c2bfb = $(`<div id="html_39f891d8663248bc7ff394875f1c2bfb" style="width: 100.0%; height: 100.0%;">Type: 1, Road: MYRTLE RIDGE DR</div>`)[0];
+                popup_eb01581e7d30c572ecb11da0bf43e115.setContent(html_39f891d8663248bc7ff394875f1c2bfb);
+            
+        
+
+        marker_707521ce8758c45336490a85f1c3c297.bindPopup(popup_eb01581e7d30c572ecb11da0bf43e115)
+        ;
+
+        
+    
+    
+            var marker_a1afec61d6bf301c80dc22f7979456c5 = L.marker(
+                [34.521261, -82.252924],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_b1fe086aefbcc4228559ac8088c0eb4b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_a1afec61d6bf301c80dc22f7979456c5.setIcon(icon_b1fe086aefbcc4228559ac8088c0eb4b);
+        
+    
+        var popup_d2ea5e2720f79d7f604ffd1def893971 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5aa705b2d4ad8cbd23d275aa9ae84322 = $(`<div id="html_5aa705b2d4ad8cbd23d275aa9ae84322" style="width: 100.0%; height: 100.0%;">Type: 2, Road: CEDAR LANE RD</div>`)[0];
+                popup_d2ea5e2720f79d7f604ffd1def893971.setContent(html_5aa705b2d4ad8cbd23d275aa9ae84322);
+            
+        
+
+        marker_a1afec61d6bf301c80dc22f7979456c5.bindPopup(popup_d2ea5e2720f79d7f604ffd1def893971)
+        ;
+
+        
+    
+    
+            var marker_6e9d9687fdca08afecfd098d3d0bf157 = L.marker(
+                [0.0, -0.0],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_86986286f22f542b08c43a8dfd468675 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_6e9d9687fdca08afecfd098d3d0bf157.setIcon(icon_86986286f22f542b08c43a8dfd468675);
+        
+    
+        var popup_2d6203515c7a8ecacb9d037d5d1d186a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7cff5918a1c10eb4e5fec5fd0ec58e92 = $(`<div id="html_7cff5918a1c10eb4e5fec5fd0ec58e92" style="width: 100.0%; height: 100.0%;">Type: 2, Road: FOLLY RD</div>`)[0];
+                popup_2d6203515c7a8ecacb9d037d5d1d186a.setContent(html_7cff5918a1c10eb4e5fec5fd0ec58e92);
+            
+        
+
+        marker_6e9d9687fdca08afecfd098d3d0bf157.bindPopup(popup_2d6203515c7a8ecacb9d037d5d1d186a)
+        ;
+
+        
+    
+    
+            var marker_27e653ab2b83625b4e0db594abb66b94 = L.marker(
+                [32.540025, -80.400325],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_2d33504e986fe00b84c16d2c4e856149 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_27e653ab2b83625b4e0db594abb66b94.setIcon(icon_2d33504e986fe00b84c16d2c4e856149);
+        
+    
+        var popup_5cc9c2a5d0c6911660a5a7f1b242ef16 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2c71503bf246189c83b82a324c5dde15 = $(`<div id="html_2c71503bf246189c83b82a324c5dde15" style="width: 100.0%; height: 100.0%;">Type: 2, Road: S. JEFFERIES BLVD</div>`)[0];
+                popup_5cc9c2a5d0c6911660a5a7f1b242ef16.setContent(html_2c71503bf246189c83b82a324c5dde15);
+            
+        
+
+        marker_27e653ab2b83625b4e0db594abb66b94.bindPopup(popup_5cc9c2a5d0c6911660a5a7f1b242ef16)
+        ;
+
+        
+    
+    
+            var marker_49c977be388bded4bac7143af1fe9ca3 = L.marker(
+                [33.160664, -81.034514],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_89fac54172dbf76c08b7934bf0f7861a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_49c977be388bded4bac7143af1fe9ca3.setIcon(icon_89fac54172dbf76c08b7934bf0f7861a);
+        
+    
+        var popup_7b4bf40c97633f3f7445da45ac1e3cbe = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_33e7c7a88ddc55e187aec8c8aa08203d = $(`<div id="html_33e7c7a88ddc55e187aec8c8aa08203d" style="width: 100.0%; height: 100.0%;">Type: 1, Road: LEMON CREEK RD</div>`)[0];
+                popup_7b4bf40c97633f3f7445da45ac1e3cbe.setContent(html_33e7c7a88ddc55e187aec8c8aa08203d);
+            
+        
+
+        marker_49c977be388bded4bac7143af1fe9ca3.bindPopup(popup_7b4bf40c97633f3f7445da45ac1e3cbe)
+        ;
+
+        
+    
+    
+            var marker_98d6b4386f3aefde3a4308928ce83286 = L.marker(
+                [35.050823, -81.393434],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_9d793ab4246430e23de8b3c58941354e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_98d6b4386f3aefde3a4308928ce83286.setIcon(icon_9d793ab4246430e23de8b3c58941354e);
+        
+    
+        var popup_60ab93c61cccccb859a5cb40c9edffaf = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9a2c85de611ab672bc2ef24d0ed05493 = $(`<div id="html_9a2c85de611ab672bc2ef24d0ed05493" style="width: 100.0%; height: 100.0%;">Type: 2, Road: W FLOYD BAKER BLVD</div>`)[0];
+                popup_60ab93c61cccccb859a5cb40c9edffaf.setContent(html_9a2c85de611ab672bc2ef24d0ed05493);
+            
+        
+
+        marker_98d6b4386f3aefde3a4308928ce83286.bindPopup(popup_60ab93c61cccccb859a5cb40c9edffaf)
+        ;
+
+        
+    
+    
+            var marker_326acbf2075f20d972fa9eb51b0e69fe = L.marker(
+                [34.424435, -82.450072],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_7c0aeca573c38e4616f48876dadbcc87 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_326acbf2075f20d972fa9eb51b0e69fe.setIcon(icon_7c0aeca573c38e4616f48876dadbcc87);
+        
+    
+        var popup_bc68739bf1e424b10d1d2dfa8c3e082a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3dcf68aed9ff83f382fd35b6a964855a = $(`<div id="html_3dcf68aed9ff83f382fd35b6a964855a" style="width: 100.0%; height: 100.0%;">Type: 1, Road: TIGER BLVD</div>`)[0];
+                popup_bc68739bf1e424b10d1d2dfa8c3e082a.setContent(html_3dcf68aed9ff83f382fd35b6a964855a);
+            
+        
+
+        marker_326acbf2075f20d972fa9eb51b0e69fe.bindPopup(popup_bc68739bf1e424b10d1d2dfa8c3e082a)
+        ;
+
+        
+    
+    
+            var marker_3a21dc49018c8d2f1c166ea5deb27068 = L.marker(
+                [34.563037, -80.582118],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_7d68f071958b0602123d66f40bbe7653 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_3a21dc49018c8d2f1c166ea5deb27068.setIcon(icon_7d68f071958b0602123d66f40bbe7653);
+        
+    
+        var popup_79348a5cb0edab9d65d65a110afce353 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_614fad6dcbb0019c12ee4c91a71f490c = $(`<div id="html_614fad6dcbb0019c12ee4c91a71f490c" style="width: 100.0%; height: 100.0%;">Type: 4, Road: 8286</div>`)[0];
+                popup_79348a5cb0edab9d65d65a110afce353.setContent(html_614fad6dcbb0019c12ee4c91a71f490c);
+            
+        
+
+        marker_3a21dc49018c8d2f1c166ea5deb27068.bindPopup(popup_79348a5cb0edab9d65d65a110afce353)
+        ;
+
+        
+    
+    
+            var marker_ef4b328bbd27e16c9716c9b3fbf81b95 = L.marker(
+                [33.00581, -80.050942],
+                {}
+            ).addTo(marker_cluster_8e94c8e5d57ae2266e2ee51184a09338);
+        
+    
+            var icon_856d2526b51034e04e0a5cc773d05d61 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_ef4b328bbd27e16c9716c9b3fbf81b95.setIcon(icon_856d2526b51034e04e0a5cc773d05d61);
+        
+    
+        var popup_1134ba1e942b6cef0a299fe5f2c7446e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4fb4ee9e5f0acad07400afe12a1c79ba = $(`<div id="html_4fb4ee9e5f0acad07400afe12a1c79ba" style="width: 100.0%; height: 100.0%;">Type: 2, Road: CROWFIELD BOULEVARD</div>`)[0];
+                popup_1134ba1e942b6cef0a299fe5f2c7446e.setContent(html_4fb4ee9e5f0acad07400afe12a1c79ba);
+            
+        
+
+        marker_ef4b328bbd27e16c9716c9b3fbf81b95.bindPopup(popup_1134ba1e942b6cef0a299fe5f2c7446e)
+        ;
+
+        
+    
+    
+            marker_cluster_8e94c8e5d57ae2266e2ee51184a09338.addTo(map_a85080c0f178a4a776e70c589b764801);
+        
+    
+        function geo_json_147a67c0bd826257a711d9c0b20be487_styler(feature) {
+            switch(feature.properties.name) {
+                default:
+                    return {"color": "green", "fillColor": "blue", "fillOpacity": 0.1, "weight": 2};
+            }
+        }
+
+        function geo_json_147a67c0bd826257a711d9c0b20be487_onEachFeature(feature, layer) {
+            layer.on({
+            });
+        };
+        var geo_json_147a67c0bd826257a711d9c0b20be487 = L.geoJson(null, {
+                onEachFeature: geo_json_147a67c0bd826257a711d9c0b20be487_onEachFeature,
+            
+                style: geo_json_147a67c0bd826257a711d9c0b20be487_styler,
+        });
+
+        function geo_json_147a67c0bd826257a711d9c0b20be487_add (data) {
+            geo_json_147a67c0bd826257a711d9c0b20be487
+                .addData(data);
+        }
+            geo_json_147a67c0bd826257a711d9c0b20be487_add({"features": [{"_id": "south carolina", "geometry": {"coordinates": [[[-82.216217, 35.196044], [-82.195483, 35.194951], [-82.185513, 35.194355], [-82.176874, 35.19379], [-82.167676, 35.193699], [-81.969325, 35.187215], [-81.874433, 35.184113], [-81.857832, 35.183492], [-81.768073, 35.180132], [-81.494265, 35.169882], [-81.493401, 35.169951], [-81.461408, 35.168657], [-81.452398, 35.168293], [-81.366691, 35.164893], [-81.366599, 35.164889], [-81.32802, 35.163404], [-81.269199, 35.16114], [-81.241686, 35.160081], [-81.239358, 35.159974], [-81.090215, 35.152627], [-81.043407, 35.14839], [-81.042758, 35.146042], [-81.032547, 35.109102], [-81.036163, 35.103205], [-81.046524, 35.100617], [-81.052078, 35.096276], [-81.057236, 35.086129], [-81.058029, 35.07319], [-81.057465, 35.061983], [-81.041489, 35.044703], [-80.95787, 35.092639], [-80.93495, 35.107409], [-80.906553, 35.076763], [-80.906417, 35.076608], [-80.840461, 35.001566], [-80.806784, 34.963249], [-80.806461, 34.962894], [-80.782042, 34.935782], [-80.79675, 34.825281], [-80.777712, 34.819697], [-80.771792, 34.819646], [-80.646601, 34.818592], [-80.644656, 34.818568], [-80.626077, 34.818217], [-80.625993, 34.818239], [-80.621222, 34.818174], [-80.561674, 34.817481], [-80.561657, 34.817481], [-80.485683, 34.816732], [-80.45166, 34.816396], [-80.448766, 34.816332], [-80.434843, 34.815968], [-80.425902, 34.81581], [-80.419586, 34.815581], [-80.418433, 34.815622], [-80.417014, 34.815508], [-80.399871, 34.815128], [-80.320413, 34.813813], [-80.098994, 34.810147], [-80.098022, 34.810147], [-80.077223, 34.809716], [-80.072912, 34.809736], [-80.042764, 34.809097], [-80.027464, 34.808726], [-79.927618, 34.806555], [-79.773607, 34.805931], [-79.772829, 34.805954], [-79.744925, 34.805686], [-79.744116, 34.805651], [-79.692948, 34.804973], [-79.690201, 34.804937], [-79.688088, 34.804897], [-79.634216, 34.771012], [-79.631577, 34.768835], [-79.561691, 34.711996], [-79.554454, 34.706363], [-79.520269, 34.678327], [-79.519043, 34.677321], [-79.490201, 34.653819], [-79.479305, 34.64464], [-79.471599, 34.6372], [-79.468717, 34.635323], [-79.461754, 34.630432], [-79.461318, 34.630126], [-79.459766, 34.629027], [-79.450034, 34.621036], [-79.358317, 34.545358], [-79.331328, 34.521869], [-79.324854, 34.516282], [-79.323249, 34.514634], [-79.198982, 34.406699], [-79.192041, 34.40104], [-79.190739, 34.399751], [-79.151485, 34.366753], [-79.143242, 34.359817], [-79.071169, 34.29924], [-78.712206, 33.996732], [-78.710141, 33.994688], [-78.6505, 33.944035], [-78.541087, 33.851112], [-78.553944, 33.847831], [-78.584841, 33.844282], [-78.67226, 33.817587], [-78.714116, 33.800138], [-78.772737, 33.768511], [-78.812931, 33.743472], [-78.862931, 33.705654], [-78.938076, 33.639826], [-79.002109, 33.572114], [-79.007356, 33.566565], [-79.028516, 33.533365], [-79.041125, 33.523773], [-79.084588, 33.483669], [-79.10136, 33.461016], [-79.135441, 33.403867], [-79.147496, 33.378243], [-79.152035, 33.350925], [-79.158429, 33.332811], [-79.162332, 33.327246], [-79.180318, 33.254141], [-79.180563, 33.237955], [-79.172394, 33.206577], [-79.18787, 33.173712], [-79.195631, 33.166016], [-79.215453, 33.155569], [-79.238262, 33.137055], [-79.24609, 33.124865], [-79.290754, 33.110051], [-79.291591, 33.109773], [-79.329909, 33.089986], [-79.337169, 33.072302], [-79.335346, 33.065362], [-79.339313, 33.050336], [-79.359961, 33.006672], [-79.403712, 33.003903], [-79.416515, 33.006815], [-79.423447, 33.015085], [-79.461047, 33.007639], [-79.483499, 33.001265], [-79.488727, 33.015832], [-79.506923, 33.032813], [-79.522449, 33.03535], [-79.55756, 33.021269], [-79.580725, 33.006447], [-79.58659, 32.991334], [-79.60102, 32.979282], [-79.606615, 32.972248], [-79.617611, 32.952726], [-79.617715, 32.94487], [-79.612928, 32.934815], [-79.606194, 32.925953], [-79.585897, 32.926461], [-79.581687, 32.931341], [-79.574951, 32.934526], [-79.572614, 32.933885], [-79.569762, 32.926692], [-79.576006, 32.906235], [-79.631149, 32.888606], [-79.655426, 32.872705], [-79.695141, 32.850398], [-79.699482, 32.839997], [-79.702956, 32.835781], [-79.719879, 32.825796], [-79.716761, 32.813627], [-79.726389, 32.805996], [-79.811021, 32.77696], [-79.818237, 32.766352], [-79.84035, 32.756816], [-79.848527, 32.755248], [-79.866742, 32.757422], [-79.872232, 32.752128], [-79.873605, 32.745657], [-79.868352, 32.734849], [-79.870336, 32.727777], [-79.888028, 32.695177], [-79.884961, 32.684402], [-79.915682, 32.664915], [-79.968468, 32.639732], [-79.975248, 32.639537], [-79.986917, 32.626388], [-79.99175, 32.616389], [-79.999374, 32.611851], [-80.010505, 32.608852], [-80.037276, 32.610236], [-80.077039, 32.603319], [-80.121368, 32.590523], [-80.148406, 32.578479], [-80.167286, 32.559885], [-80.171764, 32.546118], [-80.188401, 32.553604], [-80.193676, 32.554213], [-80.20523, 32.555547], [-80.246361, 32.531114], [-80.249566, 32.529584], [-80.277681, 32.516161], [-80.332438, 32.478104], [-80.338354, 32.47873], [-80.343883, 32.490795], [-80.363956, 32.496098], [-80.380716, 32.486359], [-80.386827, 32.47881], [-80.392561, 32.475332], [-80.413487, 32.470672], [-80.415943, 32.472074], [-80.417896, 32.476076], [-80.418502, 32.490894], [-80.423454, 32.497989], [-80.439407, 32.503472], [-80.452078, 32.497286], [-80.46571, 32.4953], [-80.472068, 32.496964], [-80.47691, 32.48539], [-80.48025, 32.477407], [-80.484617, 32.460976], [-80.480156, 32.447048], [-80.467588, 32.425259], [-80.446075, 32.423721], [-80.43296, 32.410659], [-80.429941, 32.401782], [-80.429291, 32.389667], [-80.434303, 32.375193], [-80.445451, 32.350335], [-80.456814, 32.336884], [-80.455192, 32.326458], [-80.466342, 32.31917], [-80.517871, 32.298796], [-80.539429, 32.287024], [-80.545688, 32.282076], [-80.571096, 32.273278], [-80.596394, 32.273549], [-80.618286, 32.260183], [-80.638857, 32.255618], [-80.658634, 32.248638], [-80.669166, 32.216783], [-80.688857, 32.200971], [-80.721463, 32.160427], [-80.749091, 32.140137], [-80.789996, 32.122494], [-80.812503, 32.109746], [-80.82153, 32.108589], [-80.828394, 32.113222], [-80.831531, 32.112709], [-80.844431, 32.109709], [-80.858735, 32.099581], [-80.878111, 32.079792], [-80.905378, 32.051943], [-80.892344, 32.043764], [-80.885517, 32.0346], [-81.004115, 32.072225], [-81.042833, 32.084508], [-81.06185, 32.087935], [-81.113334, 32.113205], [-81.117234, 32.117605], [-81.122034, 32.161803], [-81.125457, 32.22713], [-81.128034, 32.276297], [-81.120333, 32.285796], [-81.122333, 32.305395], [-81.134332, 32.341693], [-81.140932, 32.349393], [-81.168032, 32.368391], [-81.199029, 32.467286], [-81.275415, 32.539457], [-81.286776, 32.544831], [-81.318255, 32.559722], [-81.328753, 32.561228], [-81.348155, 32.569294], [-81.389258, 32.595385], [-81.389338, 32.595436], [-81.411906, 32.61841], [-81.41866, 32.629392], [-81.418431, 32.634704], [-81.414761, 32.63744], [-81.405134, 32.744964], [-81.404949, 32.747027], [-81.423772, 32.810514], [-81.49983, 32.963816], [-81.494736, 32.978998], [-81.491495, 32.998572], [-81.496637, 33.010224], [-81.51169, 33.024506], [-81.541831, 33.045654], [-81.615756, 33.092534], [-81.620287, 33.095408], [-81.696934, 33.116551], [-81.772251, 33.18012], [-81.851975, 33.247408], [-81.852136, 33.247544], [-81.902737, 33.331242], [-81.912572, 33.408811], [-81.957934, 33.468632], [-81.967037, 33.480636], [-82.007138, 33.522835], [-82.007638, 33.523335], [-82.014293, 33.530313], [-82.028238, 33.544934], [-82.046335, 33.56383], [-82.069039, 33.575382], [-82.098816, 33.586358], [-82.11663, 33.589723], [-82.124841, 33.591274], [-82.12908, 33.589925], [-82.135046, 33.591044], [-82.179854, 33.615945], [-82.196583, 33.630582], [-82.218649, 33.686299], [-82.247472, 33.752591], [-82.301457, 33.801864], [-82.32448, 33.820033], [-82.403881, 33.865477], [-82.408354, 33.86632], [-82.422803, 33.863754], [-82.429164, 33.865844], [-82.564483, 33.955744], [-82.564582, 33.95581], [-82.597079, 34.01239], [-82.640701, 34.088341], [-82.641252, 34.088914], [-82.652175, 34.099704], [-82.654019, 34.100346], [-82.658561, 34.103118], [-82.659077, 34.103544], [-82.668113, 34.12016], [-82.67732, 34.131657], [-82.70414, 34.141007], [-82.717507, 34.150504], [-82.731881, 34.178363], [-82.741491, 34.208709], [-82.74192, 34.210063], [-82.744415, 34.224913], [-82.743461, 34.227343], [-82.74198, 34.230196], [-82.755028, 34.276067], [-82.766078, 34.293509], [-82.848651, 34.423844], [-82.874864, 34.468891], [-82.873831, 34.471508], [-82.882864, 34.479003], [-82.902665, 34.485902], [-82.939067, 34.486202], [-82.979568, 34.482702], [-82.992215, 34.479198], [-82.992671, 34.479072], [-82.995284, 34.474549], [-83.006848, 34.474376], [-83.034712, 34.483495], [-83.052161, 34.493062], [-83.072746, 34.504349], [-83.087189, 34.515939], [-83.106874, 34.534053], [-83.170278, 34.592398], [-83.170978, 34.598798], [-83.167523, 34.600424], [-83.240676, 34.624307], [-83.240669, 34.624507], [-83.291683, 34.653396], [-83.337867, 34.687681], [-83.338194, 34.687924], [-83.351293, 34.701703], [-83.350976, 34.713243], [-83.351392, 34.714456], [-83.352485, 34.715993], [-83.352422, 34.716111], [-83.339129, 34.741266], [-83.32406, 34.788691], [-83.283151, 34.821328], [-83.267293, 34.832748], [-83.242962, 34.877749], [-83.143261, 34.924756], [-83.108535, 35.000771], [-83.008447, 35.026974], [-82.897499, 35.056021], [-82.78113, 35.084585], [-82.781062, 35.084492], [-82.777407, 35.076885], [-82.779116, 35.073674], [-82.780546, 35.069043], [-82.781973, 35.066817], [-82.764464, 35.068177], [-82.686738, 35.11979], [-82.686496, 35.121822], [-82.582264, 35.142268], [-82.580127, 35.141963], [-82.574406, 35.144216], [-82.536527, 35.159137], [-82.535804, 35.158699], [-82.517284, 35.162643], [-82.51691, 35.163029], [-82.476136, 35.175486], [-82.384029, 35.210542], [-82.35243, 35.206595], [-82.288453, 35.198605], [-82.257515, 35.198636], [-82.230915, 35.196784], [-82.230517, 35.196764], [-82.216217, 35.196044]]], "type": "Polygon"}, "properties": {"abbreviation": "SC", "area": 82931, "capital": "Columbia", "city": "Columbia", "group": "US States", "houseseats": 7, "landarea": 77858, "name": "South Carolina", "population": 4774839, "statehood": "1788-05-23", "waterarea": 5076}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_147a67c0bd826257a711d9c0b20be487.addTo(map_a85080c0f178a4a776e70c589b764801);
+        
+</script>
+</html>
