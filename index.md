@@ -1,1 +1,1 @@
-<iframe src="https://github.com/g-nitin/Alive-25/blob/8803114ba888b6ff238d23d613777a0ebeafc991/sc_incidents_map.html" style="position:absolute; top:0; left:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden;"></iframe>
+<iframe src="https://media.githubusercontent.com/media/g-nitin/Alive-25/main/sc_incidents_map.html" style="position:absolute; top:0; left:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden;"></iframe>
