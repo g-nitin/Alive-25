@@ -1,1 +1,1 @@
-south_carolina_traffic_incidents_map.html filter=lfs diff=lfs merge=lfs -text
+sc_incidents_map.html filter=lfs diff=lfs merge=lfs -text
