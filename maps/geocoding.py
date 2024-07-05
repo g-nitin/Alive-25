@@ -4,17 +4,17 @@ import folium
 from collections import defaultdict
 import multiprocessing as mp
 from numpy import array_split
-from tqdm.notebook import tqdm
 from geocoding_funcs import *
 
 
-def geocode():
+def geocode() -> pd.DataFrame:
     # Load the data
     df = pd.read_csv('../usc_data/sc_loc2018.csv')
     print(f"Number of rows: {df.shape[0]:,}")
 
     # Split the dataframe into chunks
-    num_processes = mp.cpu_count()
+    # num_processes = mp.cpu_count()
+    num_processes = 1
     print(f"Number of processes: {num_processes}")
 
     chunks = array_split(df, num_processes)
@@ -24,6 +24,7 @@ def geocode():
         all_results = pool.map(process_chunk, chunks)
 
     # Flatten results and update dataframe
+    print(f"Flattening Results...")
     results_dict = defaultdict(lambda: [None, None])
     for chunk_result in all_results:
         for idx, lat, lon in chunk_result:
@@ -40,6 +41,8 @@ def geocode():
 
 
 def create_map(df: pd.DataFrame) -> None:
+    print("Creating map...")
+
     # Create a GeoDataFrame
     gdf = gpd.GeoDataFrame(df, geometry=gpd.points_from_xy(df.longitude, df.latitude))
 
@@ -60,8 +63,5 @@ def create_map(df: pd.DataFrame) -> None:
 
 
 if __name__ == "__main__":
-    # Register `pandas.progress_apply` and `pandas.Series.map_apply` with `tqdm`
-    tqdm.pandas(desc="Progress Bar")
-
     df = geocode()
     create_map(df)

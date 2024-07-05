@@ -3,3 +3,4 @@ ignore
 .idea
 usc_data/*
 !usc_data/sc_loc2018.csv
+maps/__pycache__/
