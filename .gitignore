@@ -1,4 +1,5 @@
 ignore
-usc_data/
 .DS_Store
 .idea
+usc_data/*
+!usc_data/sc_loc2018.csv
