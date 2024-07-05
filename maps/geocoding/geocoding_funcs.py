@@ -87,6 +87,8 @@ def get_address(row: pd.Series, trim: bool = False) -> str:
 
 
 def process_chunk(chunk):
+    print("Processing chunk...")
+
     results = []
     for _, row in chunk.iterrows():
         address = get_address(row)

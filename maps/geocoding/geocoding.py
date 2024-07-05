@@ -9,17 +9,18 @@ from geocoding_funcs import *
 
 def geocode() -> pd.DataFrame:
     # Load the data
-    df = pd.read_csv('../usc_data/sc_loc2018.csv')
+    df = pd.read_csv('../usc_data/sc_loc2018.csv').sample(frac=0.1)
     print(f"Number of rows: {df.shape[0]:,}")
 
     # Split the dataframe into chunks
-    # num_processes = mp.cpu_count()
-    num_processes = 1
+    num_processes = mp.cpu_count() - 8
     print(f"Number of processes: {num_processes}")
 
+    print(f"Splitting Array...")
     chunks = array_split(df, num_processes)
 
     # Use multiprocessing to geocode in parallel
+    print(f"Use multiprocessing...")
     with mp.Pool(num_processes) as pool:
         all_results = pool.map(process_chunk, chunks)
 
