@@ -3,4 +3,5 @@ ignore
 .idea
 usc_data/*
 !usc_data/sc_loc2018.csv
+!usc_data/sc_loc2021.csv
 maps/geocoding/__pycache__/
