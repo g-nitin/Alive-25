@@ -2,6 +2,10 @@ ignore
 .DS_Store
 .idea
 usc_data/*
+!usc_data/sc_loc2017.csv
 !usc_data/sc_loc2018.csv
+!usc_data/sc_loc2019.csv
+!usc_data/sc_loc2020.csv
 !usc_data/sc_loc2021.csv
-maps/geocoding/__pycache__/
+mapping/maps/
+mapping/coordinates/__pycache__
