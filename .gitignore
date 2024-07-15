@@ -1,11 +1,12 @@
 ignore
 .DS_Store
 .idea
+.env
 usc_data/*
 !usc_data/sc_loc2017.csv
 !usc_data/sc_loc2018.csv
 !usc_data/sc_loc2019.csv
 !usc_data/sc_loc2020.csv
 !usc_data/sc_loc2021.csv
-mapping/maps/
+mapping/extra_maps/
 mapping/coordinates/__pycache__
