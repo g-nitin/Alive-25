@@ -63,6 +63,8 @@ fig = px.choropleth_mapbox(
     center={"lat": center_lat, "lon": center_lon},
     opacity=0.7,
     labels={'accidents': 'Number of Accidents'},
+    hover_name='name',  # Add county name to hover info
+    hover_data={'accidents': True, 'name': False},  # Show accidents, hide redundant name
     title='Traffic Accidents in South Carolina Counties Over Time'
 )
 
