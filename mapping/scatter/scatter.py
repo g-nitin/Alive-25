@@ -1,3 +1,5 @@
+from pathlib import Path
+from shutil import make_archive, rmtree
 import pandas as pd
 import folium as fm
 from folium.plugins import MarkerCluster
@@ -45,24 +47,24 @@ def check_cols(col1: str, col2: str, df: pd.DataFrame, print_string: str) -> tup
 
     # Perform checks for both columns
     if df[col1].dtype == 'int64' and df[col2].dtype == 'int64':
-        print_string += f"\n\nBoth {col1} and {col2} columns are of type int64."
+        print_string += f"\n\n<br>Both {col1} and {col2} columns are of type int64."
 
     elif df[col1].dtype == 'object':
-        print_string += f"\n\nThe {col1} column is of type object. Converting it to int64."
+        print_string += f"\n\n<br>The {col1} column is of type object. Converting it to int64."
         df = object_to_int(df, col1, print_string)  # Convert the `col1` column to int64
 
     elif df[col2].dtype == 'object':
-        print_string += f"\n\nThe {col2} column is of type object. Converting it to int64."
+        print_string += f"\n\n<br>The {col2} column is of type object. Converting it to int64."
         df = object_to_int(df, col2, print_string)  # Convert the `col2` column to int64
 
     elif df[col1].dtype == 'object' and df[col2].dtype == 'object':
-        print_string += f"\n\nBoth {col1} and {col2} columns are of type object. Converting them to int64."
+        print_string += f"\n\n<br>Both {col1} and {col2} columns are of type object. Converting them to int64."
         df = object_to_int(object_to_int(df, col1, print_string), col2, print_string)
 
     else:
-        print_string += f"\n\nThe {col1} and {col2} columns are of type object"
-        print_string += f"\nType of {col1} column : {df[col1].dtype}"
-        print_string += f"\nType of {col2} column : {df[col2].dtype}"
+        print_string += f"\n\n<br>The {col1} and {col2} columns are of type object"
+        print_string += f"\n<br>Type of {col1} column : {df[col1].dtype}"
+        print_string += f"\n<brType of {col2} column : {df[col2].dtype}"
 
     return print_string, df
 
@@ -91,13 +93,13 @@ def filter_points(df: pd.DataFrame, len_0: int, print_string: str) -> tuple[str,
     df = df[df['in_sc']]  # Keep only points within South Carolina
 
     print_string += f"\n\nPoints after pre-processing : {len_1:,}"
-    print_string += f"\nPoints within SC            : {df.shape[0]:,}"
-    print_string += f"\nExcluded points             : {(len_1 - df.shape[0]):,}"
-    print_string += f"\nExclusion percentage        : {(len_1 - df.shape[0]) / len_1:.2%}"
+    print_string += f"\n<br>Points within SC            : {df.shape[0]:,}"
+    print_string += f"\n<br>Excluded points             : {(len_1 - df.shape[0]):,}"
+    print_string += f"\n<br>Exclusion percentage        : {(len_1 - df.shape[0]) / len_1:.2%}"
 
     print_string += (f"\n\nTotal reduction (after pre-processing & state filtering)            : "
                      f"{(len_0 - df.shape[0]):,}")
-    print_string += (f"\nTotal reduction percentage (after pre-processing & state filtering) : "
+    print_string += (f"\n<br>Total reduction percentage (after pre-processing & state filtering) : "
                      f"{(len_0 - df.shape[0]) / len_0:.2%}")
 
     return print_string, df
@@ -200,7 +202,8 @@ def create_map(df: pd.DataFrame, year: str, color_map: dict[int, str]) -> None:
         style_function=lambda x: bordersStyle).add_to(m)
 
     # Save the map
-    f_name: str = f"../maps/sc_incidents_{year}.html"
+    Path("../maps/scatter_maps").mkdir(parents=True, exist_ok=True)
+    f_name: str = f"../maps/scatter_maps/sc_incidents_{year}.html"
     m.save(f_name)
     print(f"Map has been saved as {f_name}")
 
@@ -219,14 +222,14 @@ def mapping(year: str):
 
     # Check for rows with lat = 0 or lon = 0
     print_string += f"\n\nNumber of rows with lat = 0               : {(df['lat'] == 0).sum():,}"
-    print_string += f"\nNumber of rows with lon = 0               : {(df['lon'] == 0).sum():,}"
-    print_string += f"\nNumber of rows with lat and lon = 0       : {((df['lat'] == 0) & (df['lon'] == 0)).sum():,}"
-    print_string += f"\nNumber of rows with either lat or lon = 0 : {((df['lat'] == 0) | (df['lon'] == 0)).sum():,}"
+    print_string += f"\n<br>Number of rows with lon = 0               : {(df['lon'] == 0).sum():,}"
+    print_string += f"\n<br>Number of rows with lat and lon = 0       : {((df['lat'] == 0) & (df['lon'] == 0)).sum():,}"
+    print_string += f"\n<br>Number of rows with either lat or lon = 0 : {((df['lat'] == 0) | (df['lon'] == 0)).sum():,}"
 
     # Remove rows with lat = 0 or lon = 0
     df = df[(df['lat'] != 0) & (df['lon'] != 0)]
     print_string += f"\n\nLength of data after removing rows with lat = 0 or lon = 0 : {df.shape[0]:,}"
-    print_string += (f"\nPercentage of rows removed                                 :"
+    print_string += (f"\n<br>Percentage of rows removed                                 :"
                      f" {((len_0 - df.shape[0]) / len_0):.2%}")
 
     # Convert lat and lon to correct decimal degrees
@@ -266,6 +269,14 @@ def main():
     for year in range(2017, 2022):
         print(f"\nProcessing data for the year {year}")
         mapping(str(year))
+
+    # Zip the `../maps/scatter_maps` folder
+    print("Zipping the folder...")
+    make_archive("../maps/sc_incidents_scatter", 'zip', "../maps/scatter_maps")
+
+    # Remove the `../maps/scatter_maps` folder
+    print("Removing the folder...")
+    rmtree("../maps/scatter_maps")
 
 
 if __name__ == "__main__":
