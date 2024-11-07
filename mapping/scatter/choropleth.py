@@ -84,4 +84,4 @@ fig.update_layout(
 )
 
 # Show the figure
-fig.write_html("../maps/choropleth-mapbox-satellitestreets.html")
+fig.write_html("../maps/choropleth.html")

@@ -97,7 +97,7 @@ def filter_points(df: pd.DataFrame, len_0: int, print_string: str) -> tuple[str,
     print_string += f"\n<br>Excluded points             : {(len_1 - df.shape[0]):,}"
     print_string += f"\n<br>Exclusion percentage        : {(len_1 - df.shape[0]) / len_1:.2%}"
 
-    print_string += (f"\n\nTotal reduction (after pre-processing & state filtering)            : "
+    print_string += (f"\n\n<br>Total reduction (after pre-processing & state filtering)            : "
                      f"{(len_0 - df.shape[0]):,}")
     print_string += (f"\n<br>Total reduction percentage (after pre-processing & state filtering) : "
                      f"{(len_0 - df.shape[0]) / len_0:.2%}")
@@ -249,9 +249,8 @@ def mapping(year: str):
         f.write(f"\n\n## Data Statistics for the year {year}\n")
         f.write(print_string)
 
-    # Possible colors for Folium; not including white...
-    possible_colors = ['blue', 'darkgreen', 'cadetblue', 'lightred', 'beige', 'pink', 'green', 'darkred', 'lightgreen',
-                       'lightblue', 'darkblue', 'darkpurple', 'gray', 'purple', 'orange', 'lightgray', 'red', 'black']
+    # 5 of the possible colors for Folium
+    possible_colors = ['blue', 'darkgreen', 'purple', 'orange', 'red']
 
     # Define color mapping for 'tway'
     color_map = {num: col for num, col in zip(df['tway'].unique(), sample(possible_colors, len(df['tway'].unique())))}

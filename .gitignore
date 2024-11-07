@@ -1,4 +1,4 @@
-ignore
+ignore/
 .DS_Store
 .idea
 .env
@@ -10,3 +10,7 @@ sc_data/*
 !sc_data/sc_loc2021.csv
 mapping/extra_maps/
 mapping/coordinates/__pycache__
+AAAI-25/
+Traffic-Data-Analysis/
+**/__pycache__
+mapping/scripts/output/

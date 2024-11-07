@@ -19,7 +19,7 @@ Points after pre-processing : 129,155
 <br>Excluded points             : 28,765
 <br>Exclusion percentage        : 22.27%
 
-Total reduction (after pre-processing & state filtering)            : 41,484
+<br>Total reduction (after pre-processing & state filtering)            : 41,484
 <br>Total reduction percentage (after pre-processing & state filtering) : 29.24%
 ---
 
@@ -41,7 +41,7 @@ Points after pre-processing : 137,505
 <br>Excluded points             : 35,182
 <br>Exclusion percentage        : 25.59%
 
-Total reduction (after pre-processing & state filtering)            : 40,083
+<br>Total reduction (after pre-processing & state filtering)            : 40,083
 <br>Total reduction percentage (after pre-processing & state filtering) : 28.15%
 ---
 
@@ -63,7 +63,7 @@ Points after pre-processing : 137,616
 <br>Excluded points             : 36,336
 <br>Exclusion percentage        : 26.40%
 
-Total reduction (after pre-processing & state filtering)            : 39,816
+<br>Total reduction (after pre-processing & state filtering)            : 39,816
 <br>Total reduction percentage (after pre-processing & state filtering) : 28.22%
 ---
 
@@ -85,7 +85,7 @@ Points after pre-processing : 118,776
 <br>Excluded points             : 30,207
 <br>Exclusion percentage        : 25.43%
 
-Total reduction (after pre-processing & state filtering)            : 32,666
+<br>Total reduction (after pre-processing & state filtering)            : 32,666
 <br>Total reduction percentage (after pre-processing & state filtering) : 26.94%
 ---
 
@@ -107,6 +107,6 @@ Points after pre-processing : 145,588
 <br>Excluded points             : 37,488
 <br>Exclusion percentage        : 25.75%
 
-Total reduction (after pre-processing & state filtering)            : 39,624
+<br>Total reduction (after pre-processing & state filtering)            : 39,624
 <br>Total reduction percentage (after pre-processing & state filtering) : 26.82%
 ---
